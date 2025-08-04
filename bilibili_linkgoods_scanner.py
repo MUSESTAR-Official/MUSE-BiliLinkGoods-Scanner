@@ -26,7 +26,7 @@ def get_version():
                 if match:
                     return match.group(1)
         
-        return "1.0.0"
+        return "0.0.0"
     except Exception:
         return "未知版本"
 
