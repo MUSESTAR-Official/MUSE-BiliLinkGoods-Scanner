@@ -55,6 +55,7 @@ def show_muse_banner():
          \/____/                  ~~                       \/____/                  \/____/         
     """
     print(banner)
+    print()
     version = get_version()
     print(f"MUSE-BiliLinkGoods-Scanner v{version}")
     print("=" * 88)
@@ -90,7 +91,6 @@ async def get_project_list(page: int = 1, pagesize: int = 20) -> Optional[Dict]:
                 print(f"获取活动列表JSON解析失败: {str(json_error)}")
                 return None
             
-            # 检查API返回码
             errno = data.get("errno")
             if errno == 0 and "data" in data:
                 print(f"成功获取第 {page} 页活动列表，共 {len(data['data'].get('result', []))} 个活动")
@@ -118,7 +118,6 @@ async def get_linkgoods_list(project_id: str) -> Optional[Dict]:
             except Exception:
                 return None
             
-            # 检查API返回码
             errno = data.get("errno")
             if errno == 0 and "data" in data:
                 return data["data"]
@@ -214,7 +213,6 @@ async def check_project_has_linkgoods(project_id: str) -> bool:
     if linkgoods_data is None:
         return False
     
-    # 检查是否有场贩商品
     goods_list = linkgoods_data.get("list", [])
     return len(goods_list) > 0
 
