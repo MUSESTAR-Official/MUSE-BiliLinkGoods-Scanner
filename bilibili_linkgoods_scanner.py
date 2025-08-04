@@ -337,7 +337,6 @@ async def main():
     print("本程序将扫描所有B站会员购活动，找出存在场贩的活动")
     print(f"扫描结果将保存到: {DATA_FILE}")
     print(f"扫描日志将保存到: {LOG_FILE}")
-    print("=" * 88)
     
     print("\n请选择要扫描的场贩销售状态:")
     print("1. 未开售")
